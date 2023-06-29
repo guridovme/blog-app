@@ -1,0 +1,17 @@
+.row {
+    display: flex;
+    gap: 20px;
+}
+
+.title-input {
+    display: block;
+    margin-bottom: 20px;
+    width: 300px;
+    box-sizing: border-box;
+
+
+}
+.new-post-btn{
+    width: 300px;
+    box-sizing: border-box;
+}
