@@ -4,14 +4,22 @@
     <meta charset="UTF-8">
     <title>Blog App</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Приложение Блог</h1>
     <div class="row">
         <div class="col">
             <h2>Новый пост</h2>
-            <input class="js-title-input title-input" type="text">
+            
+            <input class="js-post-title-input post-title-input" type="text" placeholder="Введите заголовок">
+            <textarea class="js-post-text-input post-text-input" type="text" placeholder="Введите текст"></textarea>
+
             <button class="js-new-post-btn new-post-btn">Опубликовать</button>
+
+            <div id="validationMessage" class="validationMessage validationMessage_hidden">Длина заголовка не должна прывашать 100 символов</div>
+           
         </div>
         <div class="col">
             <h2>Лента</h2>
