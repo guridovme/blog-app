@@ -1,17 +1,60 @@
+*{
+    font-family: 'Inter', sans-serif;
+}
+h2{
+    font-size: 40px;
+}
 .row {
     display: flex;
     gap: 20px;
 }
+.col {
+    width: calc(100%/2);
+}
 
-.title-input {
+.post-title-input {
     display: block;
     margin-bottom: 20px;
-    width: 300px;
+    
+    box-sizing: border-box;
+    height: 60px;
+
+}
+.post-text-input {
+    display: block;
+    margin-bottom: 20px;
     box-sizing: border-box;
 
 
 }
 .new-post-btn{
-    width: 300px;
     box-sizing: border-box;
+    height: 60px;
+    background-color: #0094FF;
+    border: none;
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 400;
+}
+.validationMessage{
+    margin-top: 20px;
+    color: red;
+}
+.validationMessage_hidden{
+    display: none;
+}
+.post__date{
+    font-size: 25px;
+    font-weight: 400;
+    margin-bottom: 15px;
+    color: #0094FF;
+}
+.post__title{
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.post__text{
+    font-size: 25px;
+    font-weight: 400;
 }
