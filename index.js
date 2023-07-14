@@ -12,8 +12,7 @@ newPostBtnNode.addEventListener('click', function(){
     const postFromUser = getPostFromUser();
     addPost(postFromUser);
     renderPosts();
-    clearInputTitle(postTitleInputNode);
-    clearInputText(postTextInputNode);
+    clearInput(postTitleInputNode, postTextInputNode);
 });
 
 postTitleInputNode.addEventListener("input", validation);
@@ -111,10 +110,7 @@ function renderPosts(){
     postsNode.innerHTML = postsHTML;
 };
 
-const clearInputTitle = function (input) {
+const clearInput = function (input) {
     postTitleInputNode.value="";
-};
-
-const clearInputText = function (input) {
     postTextInputNode.value="";
 };
