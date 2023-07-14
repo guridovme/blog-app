@@ -1,32 +1,74 @@
-*{
+body {
     font-family: 'Inter', sans-serif;
 }
 h2{
     font-size: 40px;
+    font-weight: 700;
+    /*margin-top: 102px;*/
+    margin-bottom: 60px;
 }
 .row {
     display: flex;
-    gap: 20px;
+    justify-content: space-around;
+
+
 }
 .col {
-    width: calc(100%/2);
+    width: 40%;
+}
+
+.post-title-input, .post-text-input {        
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+    font-weight: 400; 
+    font-size: 32px;
+    color:#000000;
+    padding: 11px 20px;
+    font-family: inherit;
 }
 
 .post-title-input {
-    display: block;
-    margin-bottom: 20px;
-    
-    box-sizing: border-box;
     height: 60px;
-
 }
+
+.post-title-input::-webkit-input-placeholder {color:#979797;}
+
+.post-title-input:focus::-webkit-input-placeholder {opacity: 0; transition: opacity 0.3s ease;}
+.post-title-input:focus::-moz-placeholder          {opacity: 0; transition: opacity 0.3s ease;}
+.post-title-input:focus:-moz-placeholder           {opacity: 0; transition: opacity 0.3s ease;}
+.post-title-input:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s ease;}
+
+
+
 .post-text-input {
-    display: block;
-    margin-bottom: 20px;
-    box-sizing: border-box;
-
-
+    height: 250px; 
+    resize: none;   
 }
+.post-text-input::-webkit-input-placeholder {color:#979797;}
+.post-text-input::-moz-placeholder          {color:#979797;}
+.post-text-input:-moz-placeholder           {color:#979797;}
+.post-text-input:-ms-input-placeholder      {color:#979797;}
+
+
+.post-text-input:focus::-webkit-input-placeholder {opacity: 0; transition: opacity 0.3s ease;}
+.post-text-input:focus::-moz-placeholder          {opacity: 0; transition: opacity 0.3s ease;}
+.post-text-input:focus:-moz-placeholder           {opacity: 0; transition: opacity 0.3s ease;}
+.post-text-input:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s ease;}
+
+
+
+
+.posts {
+    font-weight: 400; 
+    font-size: 32px;
+    color:#979797;
+}
+
+
+
+
 .new-post-btn{
     box-sizing: border-box;
     height: 60px;
@@ -35,6 +77,11 @@ h2{
     color: #ffffff;
     font-size: 32px;
     font-weight: 400;
+    width: 100%;
+    cursor: pointer;
+}
+.not-allowed{
+    cursor:not-allowed;
 }
 .validationMessage{
     margin-top: 20px;
@@ -52,9 +99,12 @@ h2{
 .post__title{
     font-size: 32px;
     font-weight: 700;
+    color: #000000;
     margin-bottom: 15px;
 }
 .post__text{
     font-size: 25px;
     font-weight: 400;
+    color: #000000;
+    margin-bottom: 50px;
 }
