@@ -2,7 +2,6 @@ const posts = [];
 const TITLE_VALIDATION_LIMIT = 100;
 const TEXT_VALIDATION_LIMIT = 200;
 
-
 const postTitleInputNode=document.querySelector('.js-post-title-input');
 const postTextInputNode=document.querySelector('.js-post-text-input');
 const newPostBtnNode=document.querySelector('.js-new-post-btn');
@@ -18,32 +17,47 @@ newPostBtnNode.addEventListener('click', function(){
 });
 
 postTitleInputNode.addEventListener("input", validation);
-
 postTextInputNode.addEventListener("input", validation);
+
 
 function validation () {
     const titleLen = postTitleInputNode.value.length;
     const textLen = postTextInputNode.value.length;
-        
+
     if (titleLen > TITLE_VALIDATION_LIMIT){
     validationMessage.innerText =` Длина заголовка не должна превышать ${TITLE_VALIDATION_LIMIT} символов`;
     validationMessage.classList.remove("validationMessage_hidden");
+    newPostBtnNode.disabled = true;
     return;
     } 
         
     if (textLen > TEXT_VALIDATION_LIMIT){
     validationMessage.innerText =` Длина текста не должна превышать ${TEXT_VALIDATION_LIMIT} символов`;
     validationMessage.classList.remove("validationMessage_hidden");
+    newPostBtnNode.disabled = true;
     return;
     }
-    
 
     validationMessage.classList.add("validationMessage_hidden");
+    newPostBtnNode.disabled = false;
 }
+
+
 
 function getPostFromUser(){
     const title = postTitleInputNode.value;
     const text = postTextInputNode.value;
+
+    if (!title) {
+        alert('Заголовок должен быть заполнен корректно');
+        newPostBtnNode.disabled = true;
+        return;
+    }
+    if (!text) {
+        alert('Текст должен быть заполнен корректно');
+        newPostBtnNode.disabled = true;
+        return;
+    }
 
     return {
         title: title,
@@ -61,6 +75,7 @@ function addPost({ title, text}){
     minute: 'numeric'};
 
     const dt = `${currentDate.toLocaleString("fr-CH", options)}`;
+
 
     posts.push({
     dt,
