@@ -21,6 +21,8 @@ const validation = () => {
 
     } else {
         titleValidationNode.innerText = `Максимум ${TITLE_VALIDATION_LIMIT} символов`;
+        newPostBtnNode.disabled = true;
+
     };        
     if (textLen <= TEXT_VALIDATION_LIMIT){
         textValidationNode.innerText =`Количество символов в тексте: ${textLen}`; 
@@ -28,6 +30,8 @@ const validation = () => {
 
     }else {
         textValidationNode.innerText = `Максимум ${TEXT_VALIDATION_LIMIT} символов`;
+        newPostBtnNode.disabled = true;
+
     };  
 };
 
