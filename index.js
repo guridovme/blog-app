@@ -1,97 +1,74 @@
 const posts = [];
 const TITLE_VALIDATION_LIMIT = 100;
 const TEXT_VALIDATION_LIMIT = 200;
+const INITIAL_TITLE = 'Количество символов в заголовке:';
+const INITIAL_TEXT = 'Количество символов в тексте:';
 
 const postTitleInputNode=document.querySelector('.js-post-title-input');
 const postTextInputNode=document.querySelector('.js-post-text-input');
 const newPostBtnNode=document.querySelector('.js-new-post-btn');
 const postsNode=document.querySelector('.js-posts');
-const validationMessage=document.getElementById('validationMessage');
-
-newPostBtnNode.addEventListener('click', function(){
-    const postFromUser = getPostFromUser();
-    addPost(postFromUser);
-    renderPosts();
-    clearInput(postTitleInputNode, postTextInputNode);
-});
-
-postTitleInputNode.addEventListener("input", validation);
-postTextInputNode.addEventListener("input", validation);
+const titleValidationNode = document.querySelector('.js-post-title-validation');
+const textValidationNode = document.querySelector('.js-post-text-validation');
 
 
-function validation () {
+const validation = () => {
     const titleLen = postTitleInputNode.value.length;
     const textLen = postTextInputNode.value.length;
 
-    if (titleLen > TITLE_VALIDATION_LIMIT){
-    validationMessage.innerText =` Длина заголовка не должна превышать ${TITLE_VALIDATION_LIMIT} символов`;
-    validationMessage.classList.remove("validationMessage_hidden");
-    newPostBtnNode.disabled = true;
-    return;
-    } 
-        
-    if (textLen > TEXT_VALIDATION_LIMIT){
-    validationMessage.innerText =` Длина текста не должна превышать ${TEXT_VALIDATION_LIMIT} символов`;
-    validationMessage.classList.remove("validationMessage_hidden");
-    newPostBtnNode.disabled = true;
-    return;
-    }
+    if (titleLen <= TITLE_VALIDATION_LIMIT){
+        titleValidationNode.innerText =`Количество символов в заголовке: ${titleLen}`; 
+        newPostBtnNode.disabled = false;
 
-    validationMessage.classList.add("validationMessage_hidden");
-    newPostBtnNode.disabled = false;
-}
+    } else {
+        titleValidationNode.innerText = `Максимум ${TITLE_VALIDATION_LIMIT} символов`;
+    };        
+    if (textLen <= TEXT_VALIDATION_LIMIT){
+        textValidationNode.innerText =`Количество символов в тексте: ${textLen}`; 
+        newPostBtnNode.disabled = false;
 
+    }else {
+        textValidationNode.innerText = `Максимум ${TEXT_VALIDATION_LIMIT} символов`;
+    };  
+};
 
-
-function getPostFromUser(){
+const getPostFromUser = () => {
     const title = postTitleInputNode.value;
     const text = postTextInputNode.value;
+    const currentDate = new Date();
+    const options = {year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric'};
+    const dt = `${currentDate.toLocaleString("fr-CH", options)}`;
 
-    if (!title) {
+    if (title == null || title == "" || title == 0) {
         alert('Заголовок должен быть заполнен корректно');
         newPostBtnNode.disabled = true;
         return;
     }
-    if (!text) {
+    if (text == null || text == "" || text == 0) {
         alert('Текст должен быть заполнен корректно');
         newPostBtnNode.disabled = true;
         return;
     }
-
     return {
+        dt: dt,
         title: title,
         text: text
     };
 };
 
-function addPost({ title, text}){
-    const currentDate = new Date();
-    var options = {
-    year: 'numeric',
-    month: 'numeric',
-    day: 'numeric',
-    hour: 'numeric',
-    minute: 'numeric'};
-
-    const dt = `${currentDate.toLocaleString("fr-CH", options)}`;
-
-
+const addPost = ({dt, title, text}) => {   
     posts.push({
     dt,
     title,
     text,
     });
-
-
-
-
 };
 
-function getPosts () {
+const getPosts = () => {
     return posts;
 };
 
-function renderPosts(){
+const renderPosts = () => {
 
     const posts = getPosts ();
 
@@ -110,7 +87,23 @@ function renderPosts(){
     postsNode.innerHTML = postsHTML;
 };
 
-const clearInput = function (input) {
-    postTitleInputNode.value="";
-    postTextInputNode.value="";
+const clearInput  = () => {
+    postTitleInputNode.value='';
+    postTextInputNode.value='';
+    titleValidationNode.innerHTML = INITIAL_TITLE;
+    textValidationNode.innerHTML = INITIAL_TEXT;
+
 };
+
+const newPostBtnHandler = () => {
+    const postFromUser = getPostFromUser();
+    addPost(postFromUser);
+    renderPosts();
+    clearInput();
+};
+
+postTitleInputNode.addEventListener('input', validation);
+postTextInputNode.addEventListener('input', validation);
+newPostBtnNode.addEventListener('click', newPostBtnHandler);
+
+
