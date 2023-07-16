@@ -4,11 +4,12 @@
     <title>Blog App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
+    <link type="image/x-icon" href="/favicon.ico" rel="shortcut icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
 
@@ -17,13 +18,14 @@
             <h2>Новый пост</h2>
             
             <input class="js-post-title-input post-title-input" type="text" placeholder="Введите заголовок">
+            
+            <p class="js-post-title-validation post-title-validation"></p>
+
             <textarea class="js-post-text-input post-text-input" type="text" placeholder="Введите текст"></textarea>
 
+            <p class="js-post-text-validation post-text-validation"></p>
 
             <button class="js-new-post-btn new-post-btn">Опубликовать</button>
-
-            <div id="validationMessage" class="validationMessage validationMessage_hidden">Длина заголовка не должна прывашать 100 символов</div>
-
            
         </div>
         <div class="col">
