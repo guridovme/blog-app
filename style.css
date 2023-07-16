@@ -10,8 +10,6 @@ h2{
 .row {
     display: flex;
     justify-content: space-around;
-
-
 }
 .col {
     width: 40%;
@@ -35,10 +33,10 @@ h2{
 
 .post-title-input::-webkit-input-placeholder {color:#979797;}
 
-.post-title-input:focus::-webkit-input-placeholder {opacity: 0; transition: opacity 0.3s ease;}
-.post-title-input:focus::-moz-placeholder          {opacity: 0; transition: opacity 0.3s ease;}
-.post-title-input:focus:-moz-placeholder           {opacity: 0; transition: opacity 0.3s ease;}
-.post-title-input:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s ease;}
+.post-title-input:focus::-webkit-input-placeholder {opacity: 0; transition: opacity 0.5s ease;}
+.post-title-input:focus::-moz-placeholder          {opacity: 0; transition: opacity 0.5s ease;}
+.post-title-input:focus:-moz-placeholder           {opacity: 0; transition: opacity 0.5s ease;}
+.post-title-input:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.5s ease;}
 
 
 
@@ -52,23 +50,16 @@ h2{
 .post-text-input:-ms-input-placeholder      {color:#979797;}
 
 
-.post-text-input:focus::-webkit-input-placeholder {opacity: 0; transition: opacity 0.3s ease;}
-.post-text-input:focus::-moz-placeholder          {opacity: 0; transition: opacity 0.3s ease;}
-.post-text-input:focus:-moz-placeholder           {opacity: 0; transition: opacity 0.3s ease;}
-.post-text-input:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s ease;}
-
-
-
+.post-text-input:focus::-webkit-input-placeholder {opacity: 0; transition: opacity 0.5s ease;}
+.post-text-input:focus::-moz-placeholder          {opacity: 0; transition: opacity 0.5s ease;}
+.post-text-input:focus:-moz-placeholder           {opacity: 0; transition: opacity 0.5s ease;}
+.post-text-input:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.5s ease;}
 
 .posts {
     font-weight: 400; 
     font-size: 32px;
     color:#979797;
 }
-
-
-
-
 .new-post-btn{
     box-sizing: border-box;
     height: 60px;
@@ -79,16 +70,7 @@ h2{
     font-weight: 400;
     width: 100%;
     cursor: pointer;
-}
-.not-allowed{
-    cursor:not-allowed;
-}
-.validationMessage{
-    margin-top: 20px;
-    color: red;
-}
-.validationMessage_hidden{
-    display: none;
+    font-family: inherit;
 }
 .post__date{
     font-size: 25px;
@@ -107,4 +89,11 @@ h2{
     font-weight: 400;
     color: #000000;
     margin-bottom: 50px;
+    word-wrap: break-word;
+}
+.post-title-validation{
+    margin-bottom: 30px;
+}
+.post-text-validation{
+    margin-bottom: 30px;
 }
