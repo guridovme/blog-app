@@ -11,7 +11,6 @@ const postsNode=document.querySelector('.js-posts');
 const titleValidationNode = document.querySelector('.js-post-title-validation');
 const textValidationNode = document.querySelector('.js-post-text-validation');
 
-
 const validation = () => {
     const titleLen = postTitleInputNode.value.length;
     const textLen = postTextInputNode.value.length;
@@ -92,7 +91,6 @@ const clearInput  = () => {
     postTextInputNode.value='';
     titleValidationNode.innerHTML = INITIAL_TITLE;
     textValidationNode.innerHTML = INITIAL_TEXT;
-
 };
 
 const newPostBtnHandler = () => {
